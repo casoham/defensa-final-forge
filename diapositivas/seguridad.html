@@ -1,5 +1,5 @@
-<section id="seguridad" class="naranja" data-pasos="4">
-  <h2 class="titulo">Cuatro hallazgos de seguridad, y ninguno se puede explotar hoy</h2>
+<section id="seguridad" class="naranja" data-pasos="3">
+  <h2 class="titulo">Tres hallazgos de seguridad, y los tres están corregidos</h2>
   <div class="hallazgos" role="table" aria-label="Hallazgos de la revisión de seguridad">
     <div class="h-fila h-cab" role="row"><span role="columnheader">Hallazgo</span><span role="columnheader">Gravedad</span><span role="columnheader">Qué hicimos</span></div>
     <div class="h-fila" role="row" style="--k: 0">
@@ -17,12 +17,7 @@
       <span role="cell" class="grave">Baja</span>
       <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>CSP, nosniff y sin marcos</small></span>
     </div>
-    <div class="h-fila" role="row" style="--k: 3">
-      <span role="cell"><b>react-router 6</b><small>Dos avisos de la librería</small></span>
-      <span role="cell" class="grave">Moderada</span>
-      <span role="cell" class="estado"><em class="sello-h abierto">No aplica aquí</em><small>Se arregla al pasar a la versión 7</small></span>
-    </div>
   </div>
   <div class="pie"><p>Fuente: docs/revisiones/seguridad.md, revisiones del 11 y el 25 de noviembre</p></div>
-  <aside>Gabriel · Calidad y pruebas. Revisamos la seguridad dos veces contra tres amenazas: un usuario con sesión que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: la del 25 de noviembre, con el subadministrador nuevo, encontró que un operador o un subadministrador podía reemplazar la base completa con una suya y así cambiarle la contraseña a César. Escribimos primero la prueba, que falló, y después lo corregimos: la base completa solo la exporta o reemplaza el administrador. Clic: body-parser y qs permitían tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP, nosniff y prohíbe abrir la app dentro de un marco. Clic: react-router 6 tiene dos avisos que aquí no se pueden explotar, porque todas las rutas son fijas en el código y no hay renderizado en servidor. El arreglo es pasar a React Router 7, un cambio mayor que dejamos pendiente y lo decimos así.</aside>
+  <aside>Gabriel · Calidad y pruebas. Revisamos la seguridad dos veces contra tres amenazas: un usuario con sesión que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: la del 25 de noviembre, con el subadministrador nuevo, encontró que un operador o un subadministrador podía reemplazar la base completa con una suya y así cambiarle la contraseña a César. Escribimos primero la prueba, que falló, y después lo corregimos: la base completa solo la exporta o reemplaza el administrador. Clic: body-parser y qs permitían tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP, nosniff y prohíbe abrir la app dentro de un marco. Además, npm audit marca dos avisos de react-router 6 que aquí no se pueden explotar: las rutas son fijas en el código y no hay renderizado en servidor. Si preguntan, se arreglan al pasar a React Router 7.</aside>
 </section>
