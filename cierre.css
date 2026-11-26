@@ -227,3 +227,7 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
 .ruta-sigue li:nth-child(2) .parada svg { color: var(--avila); }
 .ruta-sigue li:nth-child(1) .parada { background: var(--avila-profundo); }
 .ruta-sigue li:nth-child(1) .parada svg { color: var(--crema); }
+
+/* Lo que sigue: tres paradas */
+.ruta-sigue { grid-template-columns: repeat(3, 1fr); }
+.ruta-sigue::before { left: 277px; right: 277px; }

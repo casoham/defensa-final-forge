@@ -840,6 +840,10 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
 .ruta-sigue li:nth-child(1) .parada { background: var(--avila-profundo); }
 .ruta-sigue li:nth-child(1) .parada svg { color: var(--crema); }
 
+/* Lo que sigue: tres paradas */
+.ruta-sigue { grid-template-columns: repeat(3, 1fr); }
+.ruta-sigue::before { left: 277px; right: 277px; }
+
 </style>
 </head>
 <body>
@@ -1268,29 +1272,27 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <aside>Gabriel · Despliegue y validación. Antes hubo una primera reunión, el 30 de septiembre: conversamos con el cliente sobre sus ideas y de ahí salieron los apuntes para la primera versión. Después vinieron estas tres sesiones de prueba. Después, tres sesiones de prueba con los cuatro del equipo. Clic: el 13 de octubre le mostramos el programa a César y pidió 34 cambios de funcionamiento, apariencia y nombres, como pedir confirmación en cada botón. Clic: el 29 de octubre se lo dimos a usar con una factura real de Pepsi y salieron 18 cambios, el más grande el IVA. Clic: el 12 de noviembre revisaron los cambios, lo instalamos en el local y salieron 21 cambios, la ronda de noviembre, que repartimos entre Gabriel, Alejandro y Pedro. Todo está registrado en el repositorio, en docs/PRUEBAS_USUARIO.md.</aside>
 </section>
 
-<section id="checkpoint" class="naranja" data-pasos="1">
+<section id="checkpoint" class="naranja">
 <div class="decor" aria-hidden="true">
   <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
   <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
   <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
 </div>
 
-  <h2 class="titulo">Del Checkpoint 2 quedó una sola cosa sin cerrar</h2>
+  <h2 class="titulo">Cerramos lo que quedó pendiente del Checkpoint 2</h2>
   <div class="sombra-ticket lista-cp">
     <div class="ticket">
       <p class="cabeza">CHECKPOINT 2</p>
-      <p class="sub">Lo que quedó pendiente</p>
+      <p class="sub">Pendientes cerrados</p>
       <hr class="corte">
       <p class="cp-item hecho" style="--k: 0"><span class="cp-caja"></span><span class="cp-t">Sacar el SQL de las rutas con una capa DAO</span></p>
       <p class="cp-item hecho" style="--k: 1"><span class="cp-caja"></span><span class="cp-t">Pruebas y seguridad al día, hoy 655</span></p>
       <p class="cp-item hecho" style="--k: 2"><span class="cp-caja"></span><span class="cp-t">Sugerir los artículos de cada proveedor</span></p>
       <p class="cp-item hecho" style="--k: 3"><span class="cp-caja"></span><span class="cp-t">Decidir cómo editar los respaldos JSON</span></p>
-      <p class="cp-item falta"><span class="cp-caja"></span><span class="cp-t">Medir el tiempo por factura con César</span></p>
     </div>
   </div>
-  <p class="toast toast-cp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>No se midió en la sesión del 12 de noviembre</p>
-  <div class="pie"><p>Lo cargado de un respaldo se edita y elimina desde la app, no en el archivo</p></div>
-  <aside>Gabriel · Despliegue y validación. Lo que quedó abierto en el Checkpoint 2 se fue cerrando: la capa DAO sacó todo el SQL de las rutas, las pruebas llegaron a 655 con una revisión de seguridad nueva, en Agregar compra se sugieren los artículos que ya se le compraron a cada proveedor, y decidimos cómo se editan los respaldos JSON: lo que se carga queda como compras normales, que se editan y eliminan desde la Lista de compras; el archivo no se edita dentro de la app. Está en DECISIONS.md. Clic: lo que no cerramos. Dijimos que en la sesión del 12 de noviembre mediríamos la usabilidad, el tiempo por factura y los errores por tarea, y no se midió. Es lo primero que haríamos en la siguiente visita. </aside>
+  <div class="pie"><p>Medir el tiempo por factura con César no fue posible: no se logró coordinar esa sesión</p></div>
+  <aside>Gabriel · Despliegue y validación. Lo que quedó abierto en el Checkpoint 2 se fue cerrando: la capa DAO sacó todo el SQL de las rutas, las pruebas llegaron a 655 con una revisión de seguridad nueva, en Agregar compra se sugieren los artículos que ya se le compraron a cada proveedor, y decidimos cómo se editan los respaldos JSON: lo que se carga queda como compras normales, que se editan y eliminan desde la Lista de compras; el archivo no se edita dentro de la app. Está en DECISIONS.md. Abajo, en pequeño: medir el tiempo por factura no fue posible porque no se logró coordinar esa sesión con el cliente; si preguntan, se dice así.</aside>
 </section>
 
 <section id="aciertos" data-pasos="2">
@@ -1321,7 +1323,7 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <aside>Soham · Reflexión. Lo que mejor salió fue probar con lo que el local usa de verdad. Una factura real de Pepsi nos mostró el IVA. Clic: probar el .zip en una computadora con Smart App Control nos hizo dejar el .exe. Clic: cada error que encontró el cliente quedó con su prueba automática, como el del scroll, que ahora falla si alguien lo vuelve a meter.</aside>
 </section>
 
-<section id="limitaciones" class="naranja" data-pasos="3">
+<section id="limitaciones" class="naranja" data-pasos="2">
 <div class="decor" aria-hidden="true">
   <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
   <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
@@ -1332,9 +1334,41 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <ol class="limites">
     <li style="--k: 0"><span class="l-n">1</span><span class="l-t">Una sola computadora</span><span class="l-d">Si se daña, los datos dependen del respaldo mensual</span></li>
     <li style="--k: 1"><span class="l-n">2</span><span class="l-t">Sin gráficas</span><span class="l-d">El resumen de gastos sale en el Excel, no en pantalla</span></li>
-    <li style="--k: 2"><span class="l-n">3</span><span class="l-t">Usabilidad sin medir</span><span class="l-d">No sabemos cuánto tarda César en anotar una factura</span></li>
   </ol>
-  <aside>Soham · Reflexión. Las limitaciones. Clic: corre en una sola computadora; si se daña, lo que se recupera es lo del último respaldo, y por eso el manual pide uno cada mes. Clic: no hay gráficas en pantalla; el resumen de gastos por proveedor, categoría y mes sale en el Excel. Clic: no medimos la usabilidad, así que no sabemos cuánto tiempo le ahorra a César. Queda abierto quién mantiene el sistema cuando termine el curso: hoy no hay un técnico en el local, y eso hay que decidirlo con ellos.</aside>
+  <aside>Soham · Reflexión. Las limitaciones. Clic: corre en una sola computadora; si se daña, lo que se recupera es lo del último respaldo, y por eso el manual pide uno cada mes. Clic: no hay gráficas en pantalla; el resumen de gastos por proveedor, categoría y mes sale en el Excel. Queda abierto quién mantiene el sistema cuando termine el curso: hoy no hay un técnico en el local, y eso hay que decidirlo con ellos.</aside>
+</section>
+
+<section id="sigue" class="naranja">
+<div class="decor" aria-hidden="true">
+  <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
+  <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
+  <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
+</div>
+
+  <h2 class="titulo">Lo que sigue: los gastos en gráficas y la foto de cada factura</h2>
+  <ol class="ruta ruta-sigue">
+    <li style="--k: 0"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span>Gastos en gráficas</li>
+    <li style="--k: 1"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></span>Foto de la factura</li>
+    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></span>React Router 7</li>
+  </ol>
+  <aside>Soham · Conclusiones. Lo que sigue. La ronda de noviembre ya está cerrada: el subadministrador y la unidad de cada artículo entraron en la versión 1.3.0. Lo siguiente es ver los gastos en gráficas dentro del sistema y no solo en el Excel, y guardar la foto de cada factura junto a su compra. Pasar a React Router 7 cierra dos avisos de la librería que hoy no se pueden explotar. Más adelante se podría comparar contra las ventas para sacar el costo por plato, que quedó fuera del alcance.</aside>
+</section>
+
+<section id="cierre" data-trans="arepa">
+<div class="decor" aria-hidden="true">
+  <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
+  <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
+  <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
+</div>
+
+  <div class="cierre">
+    <img class="sello cierre-sello" src="recursos/logo-badge.png" alt="De Panas SV">
+    <h2 class="titulo cierre-titulo">Hoy toca arepita</h2>
+    <p class="cierre-sub">Gracias. Ahora, sus preguntas.</p>
+  </div>
+  <img class="cierre-arepa" src="recursos/arepa.png" alt="" aria-hidden="true">
+  <p class="toast cierre-toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>¡Listo, pana! Presentación terminada.</p>
+  <aside>Soham · Cierre. Gracias. Pasamos a las preguntas; cualquiera de los cuatro puede responder sobre cualquier parte.</aside>
 </section>
 
 <section id="integrante-gabriel">
@@ -1443,56 +1477,6 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   </div>
   <div class="pie"><p>Commits y pull requests fusionados en main</p></div>
   <aside>Soham · Aporte individual. Rol: enlace con el cliente e integración. Aportes concretos: las sesiones con César y Marta, el Catálogo, la capa DAO, la integración de ramas y la documentación. 74 commits y 10 pull requests fusionados en main. Luego, su frase de lo que aprendió (pendiente: la escribe Soham).</aside>
-</section>
-
-<section id="conclusiones" data-pasos="3">
-<div class="decor" aria-hidden="true">
-  <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
-  <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
-  <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
-</div>
-
-  <h2 class="titulo">Los cambios más grandes salieron de usar el sistema en el local</h2>
-  <ol class="evidencias">
-    <li style="--k: 0"><span class="e-que">IVA en cada compra</span><span class="e-flecha" aria-hidden="true"></span><span class="e-de">Una factura real de Pepsi · 29 oct</span></li>
-    <li style="--k: 1"><span class="e-que">Entrega en .zip</span><span class="e-flecha" aria-hidden="true"></span><span class="e-de">Windows bloqueó el .exe sin firma</span></li>
-    <li style="--k: 2"><span class="e-que">Arreglo del scroll</span><span class="e-flecha" aria-hidden="true"></span><span class="e-de">La página se trabó frente al cliente · 12 nov</span></li>
-  </ol>
-  <aside>Soham · Conclusiones. Nuestra conclusión, con evidencia del proyecto: los cambios más grandes no salieron de las revisiones de código, sino de usar el sistema en el local. Clic: el IVA salió de anotar una factura real. Clic: la forma de entregarlo salió de que Windows bloqueó el .exe. Clic: el arreglo del scroll salió de que la página se trabó frente al cliente. Por eso, lo siguiente lo haríamos igual: primero con César y Marta, después en el código.</aside>
-</section>
-
-<section id="sigue" class="naranja">
-<div class="decor" aria-hidden="true">
-  <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
-  <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
-  <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
-</div>
-
-  <h2 class="titulo">Lo que sigue empieza por medir cuánto tiempo le ahorra</h2>
-  <ol class="ruta ruta-sigue">
-    <li style="--k: 0"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M22 6l-3-3"/></svg></span>Medir el tiempo por factura</li>
-    <li style="--k: 1"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span>Gastos en gráficas</li>
-    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></span>Foto de la factura</li>
-    <li style="--k: 3"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></span>React Router 7</li>
-  </ol>
-  <aside>Soham · Conclusiones. Lo que sigue. La ronda de noviembre ya está cerrada: el subadministrador y la unidad de cada artículo entraron en la versión 1.3.0. Lo primero ahora es medir con César cuánto tarda en anotar una factura, que quedó pendiente. Pasar a React Router 7 cierra los avisos de seguridad que hoy no se pueden explotar. Luego, ver los gastos en gráficas dentro del sistema y no solo en el Excel, y guardar la foto de cada factura junto a su compra. Más adelante se podría comparar contra las ventas para sacar el costo por plato, que quedó fuera del alcance.</aside>
-</section>
-
-<section id="cierre" data-trans="arepa">
-<div class="decor" aria-hidden="true">
-  <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
-  <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
-  <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
-</div>
-
-  <div class="cierre">
-    <img class="sello cierre-sello" src="recursos/logo-badge.png" alt="De Panas SV">
-    <h2 class="titulo cierre-titulo">Hoy toca arepita</h2>
-    <p class="cierre-sub">Gracias. Ahora, sus preguntas.</p>
-  </div>
-  <img class="cierre-arepa" src="recursos/arepa.png" alt="" aria-hidden="true">
-  <p class="toast cierre-toast"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>¡Listo, pana! Presentación terminada.</p>
-  <aside>Soham · Cierre. Gracias. Pasamos a las preguntas; cualquiera de los cuatro puede responder sobre cualquier parte.</aside>
 </section>
 
 </main>
