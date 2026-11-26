@@ -1,0 +1,31 @@
+<section id="zip" class="naranja" data-pasos="2">
+  <h2 class="titulo">Windows bloqueaba el .exe, así que el sistema viaja con el Node.js oficial</h2>
+  <div class="exe">
+    <svg class="exe-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
+    <p class="exe-nombre">De Panas SV.exe</p>
+    <p class="exe-sub">Sin firma digital</p>
+    <p class="exe-sello">Bloqueado</p>
+  </div>
+  <svg class="flecha-zip" viewBox="0 0 120 40" aria-hidden="true"><path d="M4 20H108M92 6l16 14-16 14" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="carpeta" role="list" aria-label="Contenido del .zip">
+    <p class="carpeta-cab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>De Panas SV.zip</p>
+    <div class="item" role="listitem" style="--k: 0">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="m8 16 2-2-2-2"/><path d="M12 18h4"/></svg>
+      <span class="item-n">Abrir De Panas SV.cmd</span><span class="item-d">Lo que se abre con doble clic</span>
+    </div>
+    <div class="item item-node" role="listitem" style="--k: 1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+      <span class="item-n">node / node.exe</span><span class="item-d">Firmado por OpenJS Foundation</span>
+    </div>
+    <div class="item" role="listitem" style="--k: 2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+      <span class="item-n">app /</span><span class="item-d">Nuestro código en JavaScript</span>
+    </div>
+  </div>
+  <div class="navegador">
+    <span class="nav-puntos" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="nav-url">localhost:4510</span>
+  </div>
+  <p class="toast toast-zip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Se abre en el navegador, sin instalar nada</p>
+  <aside>Pedro · Decisiones de diseño. La primera entrega era un instalador .exe. Smart App Control, que viene activado en Windows 11, solo deja correr programas firmados, y una firma digital tiene costo; nuestro .exe no la tenía y Windows lo bloqueaba sin opción de abrirlo igual. Clic: la solución fue un .zip con el Node.js oficial sin modificar, que sí viene firmado por OpenJS Foundation, y nuestro código adentro. Lo probamos en una computadora con Smart App Control encendido. El único paso extra es desbloquear el .zip en Propiedades antes de extraerlo. Clic: se abre en el navegador como un sitio local en el puerto 4510, solo dentro de la computadora, y crea un acceso directo en el escritorio. Los datos quedan en un solo archivo fuera de la carpeta, así que actualizar no borra nada.</aside>
+</section>

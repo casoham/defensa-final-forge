@@ -1,0 +1,21 @@
+<section id="arquitectura" data-pasos="4">
+  <h2 class="titulo">Una compra baja por cuatro capas y queda en un solo archivo</h2>
+  <ol class="capas">
+    <li class="capa" style="--k: 0"><span class="capa-n">Pantalla</span><span class="capa-d">React · Agregar compra</span></li>
+    <li class="capa" style="--k: 1"><span class="capa-n">api.js</span><span class="capa-d">Lleva la compra con la sesión</span></li>
+    <li class="capa" style="--k: 2"><span class="capa-n">Servidor</span><span class="capa-d">Express · revisa permisos</span></li>
+    <li class="capa" style="--k: 3"><span class="capa-n">DAO</span><span class="capa-d">Valida y escribe en una transacción</span></li>
+    <li class="capa" style="--k: 4"><span class="capa-n">SQLite</span><span class="capa-d">depanas.db, en la computadora del local</span></li>
+  </ol>
+  <div class="viajero" aria-hidden="true">
+    <div class="sombra-ticket"><div class="ticket mini-ticket"><p class="cabeza">PEPSI</p><p class="sub">4 artículos · IVA</p></div></div>
+  </div>
+  <div class="avisos" role="status">
+    <p class="toast aviso" style="--k: 0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Marta toca «Guardar compra»</p>
+    <p class="toast aviso" style="--k: 1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Va con su token de sesión</p>
+    <p class="toast aviso" style="--k: 2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Tiene permiso de compras</p>
+    <p class="toast aviso" style="--k: 3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>Cantidades y montos válidos</p>
+    <p class="toast aviso" style="--k: 4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>¡Listo, pana! Compra guardada.</p>
+  </div>
+  <aside>Pedro · Decisiones de diseño. Cada clic baja la compra una capa. La pantalla nunca habla con la base: todo pasa por api.js, que es la única capa de datos. El servidor vuelve a leer al usuario en cada pedido y revisa su permiso; el DAO es el único que escribe SQL, valida y guarda en una transacción, y todo termina en un solo archivo, depanas.db, que se respalda copiándolo.</aside>
+</section>

@@ -1,0 +1,31 @@
+<section id="iva" class="naranja" data-pasos="2">
+  <h2 class="titulo">El IVA apareció al anotar una factura real de Pepsi</h2>
+  <div class="impresora iva-impresora" style="--dur-imp: 2.2s; --tirones: 13; --retraso-imp: 0.4s">
+    <div class="ranura"></div>
+    <div class="salida sombra-ticket">
+      <div class="ticket" role="img" aria-label="Factura de Pepsi con tres productos, subtotal, IVA de 13 % y total; montos ocultos">
+        <p class="cabeza">PEPSI</p>
+        <p class="sub">Factura · 3 productos</p>
+        <hr class="corte">
+        <p class="fila-oculta"><span class="barra" style="--w: 62%"></span><span class="barra monto"></span></p>
+        <p class="fila-oculta"><span class="barra" style="--w: 48%"></span><span class="barra monto"></span></p>
+        <p class="fila-oculta"><span class="barra" style="--w: 55%"></span><span class="barra monto"></span></p>
+        <hr class="corte">
+        <p class="fila-oculta texto"><span>Subtotal</span><span class="barra monto"></span></p>
+        <p class="fila-oculta texto fila-iva"><span>IVA 13 %</span><span class="barra monto"></span>
+          <svg class="circulo" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"><path d="M40 14C190 -6 470 0 560 18c46 10 40 52-6 62C430 98 150 96 50 78 2 69 -4 24 60 10" pathLength="1"/></svg></p>
+        <p class="fila-oculta texto fuerte"><span>Total</span><span class="barra monto"></span></p>
+      </div>
+    </div>
+  </div>
+  <div class="globo-iva" role="status"><p>El sistema no lo tomaba en cuenta</p></div>
+  <div class="totales-app">
+    <p class="totales-cab">Agregar compra · Pepsi</p>
+    <p class="tot"><span>Subtotal</span><span>$35.26</span></p>
+    <p class="tot tot-iva"><span class="casilla" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10" pathLength="1"/></svg></span><span class="tot-n">IVA (13 %)</span><span>$4.58</span></p>
+    <p class="tot tot-total"><span>Total</span><span>$39.84</span></p>
+  </div>
+  <p class="toast toast-iva"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>También va al Excel y a los respaldos</p>
+  <div class="pie"><p>Factura de la sesión del 29 de octubre, con los montos ocultos · totales de la versión demo</p></div>
+  <aside>Pedro · Decisiones de diseño. En la segunda sesión, el 29 de octubre, César registró con nosotros una factura real de Pepsi con tres productos. Clic: ahí nos dimos cuenta de que el sistema no tomaba en cuenta el IVA. Parece básico, pero no lo vimos hasta hacer el ejercicio con una factura de verdad. Clic: lo agregamos. Es 13 % fijo y se suma encima, porque los montos de la factura van sin IVA. La casilla toma el valor de la última compra de ese proveedor, y el IVA sale en el detalle, en el Excel y en los respaldos. Los respaldos de antes siguen cargando, con IVA cero.</aside>
+</section>

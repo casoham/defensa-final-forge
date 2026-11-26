@@ -1,0 +1,24 @@
+<section id="scroll" data-pasos="2">
+  <h2 class="titulo">En el local apareció un error que nuestras pruebas no veían</h2>
+  <div class="equipo equipo-scroll">
+    <div class="vidrio">
+      <img src="recursos/app/07-catalogo.png" alt="Pantalla Catálogo detrás de dos ventanas">
+      <div class="velo-app"></div>
+      <div class="ventana v-editor"><p class="v-t">Editar proveedor</p><span class="v-linea"></span><span class="v-linea corta"></span><span class="v-boton">Guardar</span></div>
+      <div class="ventana v-confirmar"><p class="v-t">¿Guardamos los cambios?</p><span class="v-boton">Sí, guardar</span></div>
+      <div class="candado" aria-hidden="true">
+        <svg class="cerrado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <svg class="abierto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
+      </div>
+    </div>
+    <div class="pie-equipo"></div>
+  </div>
+  <div class="globo-scroll"><p>Se cerraban las dos ventanas y la página ya no bajaba</p></div>
+  <div class="contador">
+    <p class="contador-t">Ventanas abiertas</p>
+    <p class="contador-n" aria-label="De dos a cero"><span>2</span><span>1</span><span>0</span></p>
+    <p class="contador-d">El scroll vuelve cuando se cierra la última</p>
+  </div>
+  <p class="toast toast-scroll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>La prueba nueva falla con el código anterior</p>
+  <aside>Gabriel · Calidad y pruebas. En la sesión del 12 de noviembre, con varias filas en Agregar compra, la página dejó de bajar y no se llegaba a «Guardar compra»; después pasó en el Catálogo. Pedro lo reprodujo: al guardar un proveedor se abren dos ventanas, el editor y su confirmación. Clic: cada ventana guardaba el estado del scroll al abrirse y lo devolvía al cerrarse. Si la de abajo terminaba de cerrarse primero, la de arriba devolvía «bloqueado» y la página se quedaba trabada en todas las pantallas. Era intermitente porque dependía de qué animación terminaba al último. Clic: el arreglo es un solo contador de ventanas abiertas: el scroll se libera cuando se cierra la última, en cualquier orden. La prueba nueva abre dos ventanas y cierra primero la de abajo: falla siempre con el código anterior y pasa con el arreglo. También hay una prueba en el navegador, en computadora y teléfono.</aside>
+</section>

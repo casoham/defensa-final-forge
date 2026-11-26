@@ -1,0 +1,42 @@
+{
+  "titulo": "De Panas SV · Defensa final",
+  "descripcion": "Defensa final del sistema de compras de De Panas SV, equipo Forge.",
+  "fuentes": "locales",
+  "icono": "recursos/favicon-48.png",
+  "fondo": "recursos/fondo.html",
+  "css": [
+    "iconos.css",
+    "tema.css",
+    "piloto.css",
+    "contexto.css",
+    "decisiones.css",
+    "cierre.css"
+  ],
+  "agua": true,
+  "orden": [
+    "portada",
+    "personas",
+    "excel",
+    "alcance",
+    "demo",
+    "video",
+    "iva",
+    "arquitectura",
+    "zip",
+    "pruebas",
+    "seguridad",
+    "scroll",
+    "instalado",
+    "sesiones",
+    "checkpoint",
+    "aciertos",
+    "limitaciones",
+    "integrante-gabriel",
+    "integrante-pedro",
+    "integrante-alejandro",
+    "integrante-soham",
+    "conclusiones",
+    "sigue",
+    "cierre"
+  ]
+}

@@ -1,0 +1,165 @@
+/* =====================================================================
+   Defensa final · De Panas SV (Forge)
+   La identidad sale del sitio actual (Josefin en mayúsculas, Ávila, tarjetas
+   blancas, naranja como protagonista y los toasts con la voz de la marca),
+   pero el fondo es otro para que la app se distinga de la presentación.
+   Dos direcciones para elegir en el piloto: noche (Ávila profundo) y papel.
+   ===================================================================== */
+@font-face { font-family: 'Josefin Sans'; font-weight: 400; src: url(recursos/fuentes/josefin-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Josefin Sans'; font-weight: 600; src: url(recursos/fuentes/josefin-sans-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Josefin Sans'; font-weight: 700; src: url(recursos/fuentes/josefin-sans-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cardo'; font-weight: 400; src: url(recursos/fuentes/cardo-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Cardo'; font-weight: 400; font-style: italic; src: url(recursos/fuentes/cardo-latin-400-italic.woff2) format('woff2'); }
+@font-face { font-family: 'Cardo'; font-weight: 700; src: url(recursos/fuentes/cardo-latin-700-normal.woff2) format('woff2'); }
+
+:root {
+  /* Paleta del sitio (frontend/src/styles/tokens.css) */
+  --vinotinto: #911C0D;
+  --naranja: #EF7D05;
+  --amarillo: #F8A914;
+  --verde-fresco: #6DAD28;
+  --avila: #144428;
+  --avila-profundo: #0F331E;
+  --avila-75: #4F735E;
+  --crema: #FEEECC;
+  --crema-claro: #FFF8EB;
+  --tinte-exito: #E2EFD4;
+  --papel: #FFFCF5;
+
+  --letra-titulo: 'Josefin Sans', 'Segoe UI', sans-serif;
+  --letra-texto: 'Cardo', Georgia, serif;
+  --letra-cifra: 'Josefin Sans', 'Segoe UI', sans-serif;
+
+  --suave-curva: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --resorte: cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+/* ===== Dirección A · noche: Ávila profundo, texto crema, la app (crema) resalta encima ===== */
+:root[data-dir='noche'] {
+  --fondo: radial-gradient(120% 90% at 78% 18%, #1B5233 0%, var(--avila-profundo) 58%, #0A2615 100%);
+  --tinta: var(--crema);
+  --suave: rgba(254, 238, 204, 0.74);
+  --acento: var(--amarillo);
+  --icono: var(--crema);
+  --icono-op: 0.10;
+  --capa: rgba(254, 238, 204, 0.06);
+  --capa-borde: rgba(254, 238, 204, 0.16);
+  --capa-viva: var(--crema);
+  --capa-viva-tinta: var(--avila-profundo);
+  --ticket: var(--papel);
+  --velo-papel: #FFFCF5;
+  --velo-tinta: #E6DCC8;
+}
+/* ===== Dirección B · papel: blanco cálido de ticket, texto Ávila, dibujos en vinotinto ===== */
+:root[data-dir='papel'] {
+  --fondo: linear-gradient(180deg, #FFFDF8 0%, #FBF4E6 100%);
+  --tinta: var(--avila);
+  --suave: var(--avila-75);
+  --acento: var(--vinotinto);
+  --icono: var(--vinotinto);
+  --icono-op: 0.11;
+  --capa: #FFFFFF;
+  --capa-borde: #E3D9C4;
+  --capa-viva: var(--avila);
+  --capa-viva-tinta: var(--crema);
+  --ticket: #FFFFFF;
+  --velo-papel: #FEEECC;
+  --velo-tinta: #EAD3A6;
+}
+
+/* Pantallas que no son 16:9: el fondo de cada diapositiva se extiende hasta los bordes de la pantalla
+   (--mx y --my los calcula el motor), así no quedan franjas de otro color a los lados. */
+html, body { background: #0A2615; }
+:root[data-dir='papel'], :root[data-dir='papel'] body { background: #FBF4E6; }
+#escenario { overflow: visible; }
+section { background: none; overflow: visible; }
+section::before { content: ''; position: absolute; z-index: -1; pointer-events: none;
+  inset: calc(-1 * var(--my, 0px)) calc(-1 * var(--mx, 0px)); background: var(--fondo); }
+
+/* Pantalla negra o blanca (B / W, como en PowerPoint) y botón para entrar a pantalla completa */
+#telon { position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0; transition: opacity 0.25s ease; }
+#telon.negro { background: #000; opacity: 1; pointer-events: auto; cursor: none; }
+#telon.blanco { background: #fff; opacity: 1; pointer-events: auto; cursor: none; }
+#inicio { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 80; padding: 14px 26px 12px; border: 0; border-radius: 999px;
+  background: var(--avila-profundo); color: var(--crema); font: 600 17px var(--letra-titulo); letter-spacing: 0.5px; cursor: pointer;
+  box-shadow: 0 10px 24px rgba(5, 25, 13, 0.35); transition: opacity 0.3s ease, transform 0.3s ease; }
+#inicio:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+#inicio.oculto { opacity: 0; transform: translate(-50%, 16px); pointer-events: none; }
+
+/* Títulos como en el sitio: Josefin en mayúsculas */
+.titulo { font-family: var(--letra-titulo); font-weight: 700; font-size: 64px; line-height: 1.12; letter-spacing: 0.5px;
+  text-transform: uppercase; max-width: 1500px; margin-bottom: 56px; text-wrap: balance; }
+.texto, .bajada { font-family: var(--letra-texto); }
+.pie p { font-family: var(--letra-texto); font-size: 22px; }
+
+/* ===== Fondo: dibujos de la marca que se trazan solos (máscara de color + barrido) ===== */
+.decor { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.dibujo { position: absolute; width: var(--w, 260px); aspect-ratio: var(--ar, 1); background: var(--icono); opacity: var(--icono-op);
+  -webkit-mask-image: var(--src), linear-gradient(115deg, #000 40%, transparent 60%);
+  mask-image: var(--src), linear-gradient(115deg, #000 40%, transparent 60%);
+  -webkit-mask-size: contain, 300% 100%; mask-size: contain, 300% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-position: center, 100% 0; mask-position: center, 100% 0;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+  transform: rotate(var(--r, 0deg)); }
+section.activa .dibujo { animation: trazar-dibujo 1.6s var(--suave-curva) both, mecer 7s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i, 0) * 220ms + 300ms), calc(var(--i, 0) * 220ms + 2s); }
+@keyframes trazar-dibujo { from { -webkit-mask-position: center, 100% 0; mask-position: center, 100% 0; } to { -webkit-mask-position: center, 0 0; mask-position: center, 0 0; } }
+@keyframes mecer { from { transform: rotate(var(--r, 0deg)) translateY(0); } to { transform: rotate(calc(var(--r, 0deg) + 4deg)) translateY(-12px); } }
+
+/* ===== Toast: igual que los avisos del sitio ===== */
+.toast { display: inline-flex; align-items: center; gap: 18px; padding: 22px 30px 20px 24px; border-radius: 20px;
+  background: var(--tinte-exito); color: var(--avila); box-shadow: 0 18px 40px rgba(10, 38, 21, 0.28), 0 2px 6px rgba(10, 38, 21, 0.12);
+  font-family: var(--letra-titulo); font-weight: 600; font-size: 30px; line-height: 1.2; white-space: nowrap; }
+.toast svg { flex: none; width: 34px; height: 34px; color: #3F7A12; margin-top: -4px; }
+
+/* ===== Ticket (factura) con borde dentado abajo ===== */
+.ticket { position: relative; background: var(--ticket); color: var(--avila-profundo); font-family: var(--letra-titulo);
+  padding: 44px 48px 64px;
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 21px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='22'%3E%3Cpath d='M0 0H32L16 22Z'/%3E%3C/svg%3E") bottom left / 32px 22px repeat-x;
+  mask: linear-gradient(#000 0 0) top / 100% calc(100% - 21px) no-repeat, url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='22'%3E%3Cpath d='M0 0H32L16 22Z'/%3E%3C/svg%3E") bottom left / 32px 22px repeat-x; }
+.sombra-ticket { filter: drop-shadow(0 22px 28px rgba(5, 25, 13, 0.45)); }
+section.marca .sombra-ticket { filter: drop-shadow(0 18px 22px rgba(15, 51, 30, 0.22)); }
+:root[data-dir='papel'] .sombra-ticket { filter: drop-shadow(0 18px 26px rgba(20, 68, 40, 0.16)) drop-shadow(0 0 1px rgba(20, 68, 40, 0.45)); }
+.ticket .cabeza { text-align: center; font-weight: 700; font-size: 34px; letter-spacing: 3px; }
+.ticket .sub { text-align: center; font-size: 22px; letter-spacing: 2px; color: var(--avila-75); margin-top: 8px; text-transform: uppercase; }
+.ticket .corte { border: 0; border-top: 3px dashed #C9BFA9; margin: 24px 0; }
+.ticket .renglon { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; font-size: 30px; line-height: 1.7; font-variant-numeric: tabular-nums; }
+.ticket .renglon .que { flex: 1; overflow: hidden; white-space: nowrap; }
+.ticket .renglon .que::after { content: ' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'; color: #BDB29A; }
+.ticket .renglon .cuanto { white-space: nowrap; }
+.ticket .renglon.fuerte { font-weight: 700; font-size: 38px; margin-top: 6px; }
+.ticket .nota { font-family: var(--letra-texto); font-style: italic; font-size: 20px; color: var(--avila-75); text-align: center; margin-top: 14px; }
+
+/* Impresión: el ticket sale de la ranura de arriba hacia abajo, a tirones como una impresora */
+.impresora { position: absolute; }
+.impresora .ranura { position: relative; z-index: 2; height: 34px; border-radius: 17px; background: #0A2615; box-shadow: inset 0 -6px 0 rgba(255, 255, 255, 0.08); }
+section.marca .impresora .ranura { background: var(--avila-profundo); }
+.impresora .salida { position: relative; z-index: 1; margin: -17px 24px 0; overflow: hidden; padding: 0 30px 70px; }
+.impresora .ticket { transform: translateY(-101%); }
+section.activa .impresora .ticket { animation: imprimir var(--dur-imp, 2.6s) steps(var(--tirones, 16), end) both var(--retraso-imp, 0.5s); }
+@keyframes imprimir { from { transform: translateY(-101%); } to { transform: none; } }
+
+/* ===== Portada: momento de marca en Naranja Sazón (texto siempre Ávila profundo) ===== */
+section.marca { --fondo: var(--naranja); color: var(--avila-profundo); --icono: var(--avila-profundo); --icono-op: 0.13; }
+section.marca .titulo { color: var(--avila-profundo); }
+
+@media (prefers-reduced-motion: reduce) {
+  section.activa .dibujo, section.activa .impresora .ticket { animation: none; transform: none; -webkit-mask-position: center, 0 0; mask-position: center, 0 0; }
+}
+
+/* ===== Diapositivas en naranja: se alternan con las verdes. Texto siempre Ávila profundo (5.03:1) ===== */
+section.naranja {
+  --fondo: radial-gradient(120% 90% at 78% 18%, #F68F1E 0%, var(--naranja) 55%, #E27304 100%);
+  --tinta: var(--avila-profundo);
+  --suave: var(--avila-profundo);
+  --acento: var(--avila-profundo);
+  --icono: var(--avila-profundo);
+  --icono-op: 0.13;
+  --capa: rgba(255, 248, 235, 0.22);
+  --capa-borde: rgba(15, 51, 30, 0.28);
+  --capa-viva: var(--avila-profundo);
+  --capa-viva-tinta: var(--crema);
+  color: var(--avila-profundo);
+}
+section.naranja .sombra-ticket { filter: drop-shadow(0 18px 22px rgba(15, 51, 30, 0.25)); }

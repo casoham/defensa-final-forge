@@ -1,0 +1,47 @@
+/* ===== Portada ===== */
+.portada-texto { position: absolute; left: 128px; top: 150px; width: 900px; }
+.sello { width: 150px; height: 150px; display: block; margin-bottom: 44px; animation: sello-entra 0.9s var(--resorte) both 0.2s; }
+@keyframes sello-entra { from { opacity: 0; transform: scale(0.4) rotate(-40deg); } to { opacity: 1; transform: none; } }
+#portada .titulo { font-size: 78px; line-height: 1.08; margin-bottom: 40px; }
+.portada-sub { font-family: var(--letra-texto); font-size: 34px; color: var(--avila-profundo); animation: llegar 0.7s var(--suave-curva) both 0.6s; }
+.portada-impresora { left: 1140px; top: 70px; width: 660px; }
+.portada-toast { position: absolute; left: 1060px; top: 900px; opacity: 0; }
+section.activa .portada-toast { animation: toast-entra 0.6s var(--resorte) both 3.5s; }
+@keyframes toast-entra { from { opacity: 0; transform: translateY(28px) scale(0.92); } to { opacity: 1; transform: none; } }
+
+/* ===== Arquitectura: la compra baja capa por capa ===== */
+.capas { position: absolute; left: 128px; top: 336px; width: 760px; list-style: none; padding: 0; display: grid; gap: 12px; }
+.capa { height: 106px; padding: 0 36px; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; gap: 4px;
+  background: var(--capa); border: 2px solid var(--capa-borde); color: var(--tinta);
+  transition: background 0.45s ease, color 0.45s ease, transform 0.5s var(--resorte), border-color 0.45s ease;
+  animation: llegar 0.6s var(--suave-curva) both; animation-delay: calc(var(--k) * 90ms + 300ms); }
+.capa-n { font-family: var(--letra-titulo); font-weight: 700; font-size: 36px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.1; padding-top: 6px; }
+.capa-d { font-family: var(--letra-texto); font-size: 26px; color: var(--suave); transition: color 0.45s ease; }
+#arquitectura:not(.p1) .capa:nth-child(1), #arquitectura.p1:not(.p2) .capa:nth-child(2), #arquitectura.p2:not(.p3) .capa:nth-child(3),
+#arquitectura.p3:not(.p4) .capa:nth-child(4), #arquitectura.p4 .capa:nth-child(5) {
+  background: var(--capa-viva); color: var(--capa-viva-tinta); border-color: var(--capa-viva); transform: translateX(16px); }
+#arquitectura:not(.p1) .capa:nth-child(1) .capa-d, #arquitectura.p1:not(.p2) .capa:nth-child(2) .capa-d, #arquitectura.p2:not(.p3) .capa:nth-child(3) .capa-d,
+#arquitectura.p3:not(.p4) .capa:nth-child(4) .capa-d, #arquitectura.p4 .capa:nth-child(5) .capa-d { color: var(--capa-viva-tinta); }
+.capa:nth-child(5) { border-style: dashed; }
+.viajero { position: absolute; left: 930px; top: 336px; width: 250px; transform: translateY(calc(var(--paso, 0) * 118px));
+  transition: transform 0.75s cubic-bezier(0.34, 1.25, 0.5, 1); }
+.viajero > div { animation: llegar 0.6s var(--suave-curva) both 0.8s; }
+.mini-ticket { padding: 18px 24px 34px; text-align: center; }
+.mini-ticket .cabeza { font-size: 30px; }
+.mini-ticket .sub { font-size: 18px; margin-top: 4px; }
+.avisos { position: absolute; left: 1230px; top: 336px; width: 600px; height: 600px; }
+.aviso { position: absolute; left: 0; top: calc(var(--k) * 118px + 14px); font-size: 27px; padding: 18px 26px 16px 20px;
+  opacity: 0; transform: translateX(-20px) scale(0.95); transition: opacity 0.3s ease, transform 0.5s var(--resorte); }
+.aviso svg { width: 30px; height: 30px; }
+#arquitectura:not(.p1) .aviso:nth-child(1), #arquitectura.p1:not(.p2) .aviso:nth-child(2), #arquitectura.p2:not(.p3) .aviso:nth-child(3),
+#arquitectura.p3:not(.p4) .aviso:nth-child(4), #arquitectura.p4 .aviso:nth-child(5) { opacity: 1; transform: none; transition-delay: 0.45s; }
+#arquitectura:not(.p1) .aviso:nth-child(1) { transition-delay: 1.3s; }
+
+/* ===== Pruebas: el ticket de las pruebas ===== */
+.pruebas-impresora { left: 128px; top: 330px; width: 860px; }
+.pruebas-impresora .ticket { padding: 40px 56px 64px; }
+.pruebas-impresora .renglon { font-size: 36px; line-height: 1.8; }
+.pruebas-impresora .renglon.fuerte { font-size: 60px; line-height: 1.4; }
+.pruebas-lado { position: absolute; left: 1080px; top: 420px; display: grid; gap: 28px; justify-items: start; }
+.pruebas-toast { opacity: 0; transform: translateY(24px) scale(0.94); transition: opacity 0.3s ease, transform 0.5s var(--resorte); }
+#pruebas.p1 .t1, #pruebas.p2 .t2 { opacity: 1; transform: none; }
