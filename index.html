@@ -623,9 +623,11 @@ section.activa .portada-toast { animation: toast-entra 0.6s var(--resorte) both 
 .sello-h.listo { color: #2E5E12; }
 .sello-h.abierto { color: var(--avila); }
 .estado small { opacity: 0; transition: opacity 0.4s ease 0.35s; }
-#seguridad.p1 .h-fila:nth-child(2) .sello-h, #seguridad.p2 .h-fila:nth-child(3) .sello-h, #seguridad.p3 .h-fila:nth-child(4) .sello-h { opacity: 1; transform: rotate(-4deg); }
-#seguridad.p1 .h-fila:nth-child(2) small, #seguridad.p2 .h-fila:nth-child(3) small, #seguridad.p3 .h-fila:nth-child(4) small { opacity: 1; }
-#seguridad.p1:not(.p2) .h-fila:nth-child(2), #seguridad.p2:not(.p3) .h-fila:nth-child(3), #seguridad.p3 .h-fila:nth-child(4) { background: #FDE7C6; }
+#seguridad.p1 .h-fila:nth-child(2) .sello-h, #seguridad.p2 .h-fila:nth-child(3) .sello-h, #seguridad.p3 .h-fila:nth-child(4) .sello-h, #seguridad.p4 .h-fila:nth-child(5) .sello-h { opacity: 1; transform: rotate(-4deg); }
+#seguridad.p1 .h-fila:nth-child(2) .estado small, #seguridad.p2 .h-fila:nth-child(3) .estado small, #seguridad.p3 .h-fila:nth-child(4) .estado small, #seguridad.p4 .h-fila:nth-child(5) .estado small { opacity: 1; }
+#seguridad.p1:not(.p2) .h-fila:nth-child(2), #seguridad.p2:not(.p3) .h-fila:nth-child(3), #seguridad.p3:not(.p4) .h-fila:nth-child(4), #seguridad.p4 .h-fila:nth-child(5) { background: #FDE7C6; }
+#seguridad .h-fila { padding: 20px 44px 16px; }
+.cp-item { padding: 11px 0; }
 
 /* ===== Scroll: dos ventanas, un candado y el contador ===== */
 .equipo-scroll { left: 128px; top: 300px; width: 1000px; animation: subir 0.9s var(--suave-curva) both 0.25s; }
@@ -829,6 +831,12 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
 .ruta-sigue li { font-size: 34px; }
 .int-aporte { font-size: 40px; width: 800px; }
 
+/* Lo que sigue: la primera parada es la que se destaca */
+.ruta-sigue li:nth-child(2) .parada { background: var(--crema-claro); }
+.ruta-sigue li:nth-child(2) .parada svg { color: var(--avila); }
+.ruta-sigue li:nth-child(1) .parada { background: var(--avila-profundo); }
+.ruta-sigue li:nth-child(1) .parada svg { color: var(--crema); }
+
 </style>
 </head>
 <body>
@@ -968,17 +976,17 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <ol class="ruta">
     <li style="--k: 0"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="m10 17 5-5-5-5"/><path d="M15 12H3"/></svg></span>Entrar</li>
     <li style="--k: 1"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>Compra con IVA</li>
-    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>Artículo nuevo</li>
+    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>Artículo con su unidad</li>
     <li style="--k: 3"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span>Lista de compras</li>
     <li style="--k: 4"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>Catálogo</li>
     <li style="--k: 5"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13l3 4M11 13l-3 4M14 17h3"/></svg></span>Excel</li>
-    <li style="--k: 6"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Usuarios</li>
+    <li style="--k: 6"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Un subadministrador</li>
     <li style="--k: 7"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v10"/><path d="M18.4 6.6a9 9 0 1 1-12.77.04"/></svg></span>Apagar y abrir</li>
   </ol>
   <div class="espacio-demo" aria-hidden="true">
     <i class="dibujo-fijo" style="--src: var(--ic11); --ar: 360/462"></i>
   </div>
-  <aside>Alejandro · Demostración en vivo (10 min). Aquí cambia de pestaña a la app. Guion: 1) Entrar como Cesar_01. 2) Agregar compra: proveedor Pepsi, tres artículos, marcar el IVA de 13 % y ver subtotal, IVA y total. 3) Escribir un artículo que no existe y llenar su formulario (categoría y producto). 4) Guardar: confirmación y «¡Listo, pana! Compra guardada.». 5) Lista de compras: filtrar por proveedor, abrir el detalle y editar. 6) Catálogo: ficha del proveedor y proveedores de una categoría. 7) Exportar a Excel y abrir la hoja Resumen. 8) Gestor de usuarios: roles y permisos. 9) Apagar De Panas SV y volver a abrir: la compra sigue ahí (persistencia). Si algo falla, pasar a la siguiente diapositiva: el video.</aside>
+  <aside>Alejandro · Demostración en vivo (10 min). Aquí cambia de pestaña a la app. Guion: 1) Entrar como Cesar_01. 2) Agregar compra: proveedor Pepsi, tres artículos, marcar el IVA de 13 % y ver subtotal, IVA y total. 3) Escribir un artículo que no existe y llenar su formulario: unidad a la derecha del nombre, categoría y producto. La fila toma la unidad y ya no se cambia ahí, sino con el lápiz. 4) Guardar: confirmación y «¡Listo, pana! Compra guardada.». 5) Lista de compras: filtrar por proveedor, abrir el detalle y editar. 6) Catálogo: ficha del proveedor y proveedores de una categoría. 7) Exportar a Excel y abrir la hoja Resumen. 8) Gestor de usuarios: crear un subadministrador y mostrar que no puede editar a César. 9) Apagar De Panas SV y volver a abrir: la compra sigue ahí (persistencia). Si algo falla, pasar a la siguiente diapositiva: el video.</aside>
 </section>
 
 <section id="video">
@@ -991,15 +999,12 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <h2 class="titulo">La misma compra, grabada por si falla algo</h2>
   <div class="equipo equipo-video">
     <div class="vidrio">
-      <!-- Cuando esté el video: <video src="recursos/demo.mp4" muted playsinline controls></video> -->
-      <div class="video-pendiente">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg>
-        <p>Aquí va el video de la demo (≈ 8 min)</p>
-      </div>
+      <video src="recursos/demo.webm" poster="recursos/demo-portada.png" controls preload="metadata" playsinline aria-label="Video de la demostración: una factura de Pepsi de punta a punta en la versión demo"></video>
     </div>
     <div class="pie-equipo"></div>
   </div>
-  <aside>Respaldo de la demostración. Solo se usa si la demo en vivo falla. Video de punta a punta (≈ 8 min) grabado de la versión demo con el cursor visible, para que Alejandro hable encima. Pendiente de grabar.</aside>
+  <div class="pie"><p>Versión demo con datos de ejemplo · 8 min</p></div>
+  <aside>Respaldo de la demostración. Solo se usa si la demo en vivo falla por algo ajeno al equipo. Es la versión demo con datos de ejemplo, sin sonido, para narrarla encima. Minutos: 0:00 entrar como César · 0:26 factura de Pepsi: proveedor, Pepsi y Agua (la unidad sale sola y el IVA se marca solo porque la última compra a Pepsi lo llevaba) · 1:43 Té frío, un artículo nuevo: unidad caja, categoría Bebidas, producto Gaseosas · 2:52 IVA y total, Guardar compra con su confirmación y «¡Listo, pana! Compra guardada.» · 3:31 Lista de compras: el detalle y el filtro por proveedor · 4:22 Catálogo: el artículo nuevo y la ficha de Pepsi · 5:10 Exportar a Excel este mes · 5:56 Gestor de usuarios: crear a Sofía como subadministradora · 7:02 Apagar De Panas SV, volver a abrir y la compra sigue ahí (persistencia).</aside>
 </section>
 
 <section id="iva" class="naranja" data-pasos="2">
@@ -1121,50 +1126,55 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
         <p class="cabeza">PRUEBAS</p>
         <p class="sub">node:test · Vitest · Playwright</p>
         <hr class="corte">
-        <p class="renglon"><span class="que">Servidor y datos</span><span class="cuanto" data-contar="136">136</span></p>
-        <p class="renglon"><span class="que">Pantallas</span><span class="cuanto" data-contar="376">376</span></p>
-        <p class="renglon"><span class="que">En el navegador</span><span class="cuanto" data-contar="91">91</span></p>
+        <p class="renglon"><span class="que">Servidor y datos</span><span class="cuanto" data-contar="151">151</span></p>
+        <p class="renglon"><span class="que">Pantallas</span><span class="cuanto" data-contar="402">402</span></p>
+        <p class="renglon"><span class="que">En el navegador</span><span class="cuanto" data-contar="102">102</span></p>
         <hr class="corte">
-        <p class="renglon fuerte"><span class="que">Total</span><span class="cuanto" data-contar="603">603</span></p>
+        <p class="renglon fuerte"><span class="que">Total</span><span class="cuanto" data-contar="655">655</span></p>
       </div>
     </div>
   </div>
   <div class="pruebas-lado" role="status">
     <p class="toast pruebas-toast t1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Corren en computadora y en teléfono</p>
-    <p class="toast pruebas-toast t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>31 de ellas cuidan la seguridad</p>
+    <p class="toast pruebas-toast t2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>33 de ellas cuidan la seguridad</p>
   </div>
-  <div class="pie"><p>Fuente: docs/sitio/calidad.html del repositorio</p></div>
-  <aside>Gabriel · Calidad y pruebas. 136 pruebas del servidor y los datos con node:test, 376 de las pantallas con Vitest y 91 corridas en el navegador con Playwright: primer clic, corren en computadora y en teléfono. Segundo clic: 31 de las del servidor son de seguridad (sesión, permisos, bloqueo tras 5 intentos y el hash de las contraseñas).</aside>
+  <div class="pie"><p>Fuente: docs/pruebas del repositorio, corrida del 26 de noviembre</p></div>
+  <aside>Gabriel · Calidad y pruebas. 151 pruebas del servidor y los datos con node:test, 402 de las pantallas con Vitest y 102 corridas en el navegador con Playwright: primer clic, corren en computadora y en teléfono. Segundo clic: 33 de las del servidor son de seguridad (sesión, permisos, el subadministrador, la base completa solo para el administrador, bloqueo tras 5 intentos y el hash de las contraseñas). Todas las salidas están en el reporte de pruebas del repositorio.</aside>
 </section>
 
-<section id="seguridad" class="naranja" data-pasos="3">
+<section id="seguridad" class="naranja" data-pasos="4">
 <div class="decor" aria-hidden="true">
   <i class="dibujo" style="--src: var(--ic11); --w: 230px; --ar: 360/462; right: 40px; top: 36px; --r: 10deg; --i: 0"></i>
   <i class="dibujo" style="--src: var(--ic07); --w: 140px; --ar: 233/260; left: 1320px; bottom: 24px; --r: -14deg; --i: 1"></i>
   <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
 </div>
 
-  <h2 class="titulo">Tres hallazgos de seguridad, y ninguno se puede explotar</h2>
+  <h2 class="titulo">Cuatro hallazgos de seguridad, y ninguno se puede explotar hoy</h2>
   <div class="hallazgos" role="table" aria-label="Hallazgos de la revisión de seguridad">
     <div class="h-fila h-cab" role="row"><span role="columnheader">Hallazgo</span><span role="columnheader">Gravedad</span><span role="columnheader">Qué hicimos</span></div>
     <div class="h-fila" role="row" style="--k: 0">
+      <span role="cell"><b>La base completa (.db)</b><small>Un operador podía reemplazarla y cambiar la clave de César</small></span>
+      <span role="cell" class="grave alta">Alta</span>
+      <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>Solo el administrador, con su prueba</small></span>
+    </div>
+    <div class="h-fila" role="row" style="--k: 1">
       <span role="cell"><b>body-parser y qs</b><small>Se podía tumbar el servidor con un pedido comprimido</small></span>
       <span role="cell" class="grave alta">Alta</span>
       <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>npm audit: 0 vulnerabilidades</small></span>
     </div>
-    <div class="h-fila" role="row" style="--k: 1">
+    <div class="h-fila" role="row" style="--k: 2">
       <span role="cell"><b>Cabeceras de seguridad</b><small>El servidor no las mandaba</small></span>
       <span role="cell" class="grave">Baja</span>
       <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>CSP, nosniff y sin marcos</small></span>
     </div>
-    <div class="h-fila" role="row" style="--k: 2">
+    <div class="h-fila" role="row" style="--k: 3">
       <span role="cell"><b>react-router 6</b><small>Dos avisos de la librería</small></span>
       <span role="cell" class="grave">Moderada</span>
       <span role="cell" class="estado"><em class="sello-h abierto">No aplica aquí</em><small>Se arregla al pasar a la versión 7</small></span>
     </div>
   </div>
-  <div class="pie"><p>Fuente: docs/revisiones/seguridad.md, 11 de noviembre de 2026</p></div>
-  <aside>Gabriel · Calidad y pruebas. Antes de entregar revisamos la seguridad contra tres amenazas: un empleado que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: body-parser y qs tenían una falla que permitía tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix y hoy el servidor tiene cero vulnerabilidades. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP solo con lo propio, nosniff y prohíbe que la app se abra dentro de un marco. Clic: react-router 6 tiene dos avisos, pero no se pueden explotar aquí: todas las rutas son fijas en el código y la app no se renderiza en un servidor. El arreglo es pasar a React Router 7, un cambio mayor que dejamos pendiente y lo decimos así.</aside>
+  <div class="pie"><p>Fuente: docs/revisiones/seguridad.md, revisiones del 11 y el 25 de noviembre</p></div>
+  <aside>Gabriel · Calidad y pruebas. Revisamos la seguridad dos veces contra tres amenazas: un usuario con sesión que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: la del 25 de noviembre, con el subadministrador nuevo, encontró que un operador o un subadministrador podía reemplazar la base completa con una suya y así cambiarle la contraseña a César. Escribimos primero la prueba, que falló, y después lo corregimos: la base completa solo la exporta o reemplaza el administrador. Clic: body-parser y qs permitían tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP, nosniff y prohíbe abrir la app dentro de un marco. Clic: react-router 6 tiene dos avisos que aquí no se pueden explotar, porque todas las rutas son fijas en el código y no hay renderizado en servidor. El arreglo es pasar a React Router 7, un cambio mayor que dejamos pendiente y lo decimos así.</aside>
 </section>
 
 <section id="scroll" data-pasos="2">
@@ -1275,14 +1285,15 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
       <p class="sub">Lo que quedó pendiente</p>
       <hr class="corte">
       <p class="cp-item hecho" style="--k: 0"><span class="cp-caja"></span><span class="cp-t">Sacar el SQL de las rutas con una capa DAO</span></p>
-      <p class="cp-item hecho" style="--k: 1"><span class="cp-caja"></span><span class="cp-t">Más pruebas automáticas, hoy 603</span></p>
+      <p class="cp-item hecho" style="--k: 1"><span class="cp-caja"></span><span class="cp-t">Pruebas y seguridad al día, hoy 655</span></p>
       <p class="cp-item hecho" style="--k: 2"><span class="cp-caja"></span><span class="cp-t">Sugerir los artículos de cada proveedor</span></p>
+      <p class="cp-item hecho" style="--k: 3"><span class="cp-caja"></span><span class="cp-t">Decidir cómo editar los respaldos JSON</span></p>
       <p class="cp-item falta"><span class="cp-caja"></span><span class="cp-t">Medir el tiempo por factura con César</span></p>
     </div>
   </div>
   <p class="toast toast-cp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>No se midió en la sesión del 12 de noviembre</p>
-  <div class="pie"><p>Fuera del alcance: editar a mano los respaldos JSON</p></div>
-  <aside>Gabriel · Despliegue y validación. Lo que quedó abierto en el Checkpoint 2 se fue cerrando: la capa DAO sacó todo el SQL de las rutas, las pruebas llegaron a 603 y en Agregar compra se sugieren los artículos que ya se le compraron a cada proveedor. Clic: lo que no cerramos. Dijimos que en la sesión del 12 de noviembre mediríamos la usabilidad, el tiempo por factura y los errores por tarea, y no se midió. Es lo primero que haríamos en la siguiente visita. Editar a mano los respaldos JSON quedó fuera del alcance.</aside>
+  <div class="pie"><p>Lo cargado de un respaldo se edita y elimina desde la app, no en el archivo</p></div>
+  <aside>Gabriel · Despliegue y validación. Lo que quedó abierto en el Checkpoint 2 se fue cerrando: la capa DAO sacó todo el SQL de las rutas, las pruebas llegaron a 655 con una revisión de seguridad nueva, en Agregar compra se sugieren los artículos que ya se le compraron a cada proveedor, y decidimos cómo se editan los respaldos JSON: lo que se carga queda como compras normales, que se editan y eliminan desde la Lista de compras; el archivo no se edita dentro de la app. Está en DECISIONS.md. Clic: lo que no cerramos. Dijimos que en la sesión del 12 de noviembre mediríamos la usabilidad, el tiempo por factura y los errores por tarea, y no se midió. Es lo primero que haríamos en la siguiente visita. </aside>
 </section>
 
 <section id="aciertos" data-pasos="2">
@@ -1397,17 +1408,17 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
       <p class="int-rol">Usuarios, seguridad y calidad</p>
     </div>
   </div>
-  <p class="int-aporte">El gestor de usuarios, los roles y permisos, las pruebas con Playwright y la vista de teléfono</p>
+  <p class="int-aporte">El gestor de usuarios, los roles y permisos, las pruebas con Playwright, el subadministrador y la unidad de cada artículo</p>
   <div class="cifras-int">
-    <p class="cifra-int"><b data-contar="10">10</b><span>commits</span></p>
-    <p class="cifra-int"><b data-contar="5">5</b><span>pull requests</span></p>
+    <p class="cifra-int"><b data-contar="12">12</b><span>commits</span></p>
+    <p class="cifra-int"><b data-contar="6">6</b><span>pull requests</span></p>
   </div>
   <div class="aprendi">
     <p class="aprendi-t">Lo que aprendí</p>
     <!-- Frase de Alejandro: escríbela aquí, en una o dos líneas -->
   </div>
   <div class="pie"><p>Commits y pull requests fusionados en main</p></div>
-  <aside>Alejandro · Aporte individual. Rol: usuarios, seguridad y calidad. Aportes concretos: el gestor de usuarios, los roles y permisos, las pruebas con Playwright y la vista de teléfono. 10 commits y 5 pull requests fusionados en main. Luego, su frase de lo que aprendió (pendiente: la escribe Alejandro).</aside>
+  <aside>Alejandro · Aporte individual. Rol: usuarios, seguridad y calidad. Aportes concretos: el gestor de usuarios, los roles y permisos, las pruebas con Playwright, el subadministrador y la unidad de cada artículo. 12 commits y 6 pull requests fusionados en main. Luego, su frase de lo que aprendió (pendiente: la escribe Alejandro).</aside>
 </section>
 
 <section id="integrante-soham" class="naranja">
@@ -1460,14 +1471,14 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
   <i class="dibujo" style="--src: var(--ic16); --w: 180px; --ar: 295/310; right: 60px; bottom: 44px; --r: 8deg; --i: 2"></i>
 </div>
 
-  <h2 class="titulo">Lo que sigue empieza por cerrar la ronda de noviembre</h2>
+  <h2 class="titulo">Lo que sigue empieza por medir cuánto tiempo le ahorra</h2>
   <ol class="ruta ruta-sigue">
-    <li style="--k: 0"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></span>Subadministrador y unidades</li>
-    <li style="--k: 1"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M22 6l-3-3"/></svg></span>Medir el tiempo por factura</li>
-    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span>Gastos en gráficas</li>
-    <li style="--k: 3"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></span>Foto de la factura</li>
+    <li style="--k: 0"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M5 3 2 6M22 6l-3-3"/></svg></span>Medir el tiempo por factura</li>
+    <li style="--k: 1"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></span>Gastos en gráficas</li>
+    <li style="--k: 2"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></span>Foto de la factura</li>
+    <li style="--k: 3"><span class="parada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></span>React Router 7</li>
   </ol>
-  <aside>Soham · Conclusiones. Lo que sigue. Primero, terminar la ronda de noviembre: el subadministrador y las unidades por artículo, que está trabajando Alejandro. Después, medir con César cuánto tarda en anotar una factura, que quedó pendiente. Luego, ver los gastos en gráficas dentro del sistema y no solo en el Excel, y guardar la foto de cada factura junto a su compra. Más adelante se podría comparar contra las ventas para sacar el costo por plato, que quedó fuera del alcance.</aside>
+  <aside>Soham · Conclusiones. Lo que sigue. La ronda de noviembre ya está cerrada: el subadministrador y la unidad de cada artículo entraron en la versión 1.3.0. Lo primero ahora es medir con César cuánto tarda en anotar una factura, que quedó pendiente. Pasar a React Router 7 cierra los avisos de seguridad que hoy no se pueden explotar. Luego, ver los gastos en gráficas dentro del sistema y no solo en el Excel, y guardar la foto de cada factura junto a su compra. Más adelante se podría comparar contra las ventas para sacar el costo por plato, que quedó fuera del alcance.</aside>
 </section>
 
 <section id="cierre" data-trans="arepa">

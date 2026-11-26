@@ -14,9 +14,11 @@
 .sello-h.listo { color: #2E5E12; }
 .sello-h.abierto { color: var(--avila); }
 .estado small { opacity: 0; transition: opacity 0.4s ease 0.35s; }
-#seguridad.p1 .h-fila:nth-child(2) .sello-h, #seguridad.p2 .h-fila:nth-child(3) .sello-h, #seguridad.p3 .h-fila:nth-child(4) .sello-h { opacity: 1; transform: rotate(-4deg); }
-#seguridad.p1 .h-fila:nth-child(2) small, #seguridad.p2 .h-fila:nth-child(3) small, #seguridad.p3 .h-fila:nth-child(4) small { opacity: 1; }
-#seguridad.p1:not(.p2) .h-fila:nth-child(2), #seguridad.p2:not(.p3) .h-fila:nth-child(3), #seguridad.p3 .h-fila:nth-child(4) { background: #FDE7C6; }
+#seguridad.p1 .h-fila:nth-child(2) .sello-h, #seguridad.p2 .h-fila:nth-child(3) .sello-h, #seguridad.p3 .h-fila:nth-child(4) .sello-h, #seguridad.p4 .h-fila:nth-child(5) .sello-h { opacity: 1; transform: rotate(-4deg); }
+#seguridad.p1 .h-fila:nth-child(2) .estado small, #seguridad.p2 .h-fila:nth-child(3) .estado small, #seguridad.p3 .h-fila:nth-child(4) .estado small, #seguridad.p4 .h-fila:nth-child(5) .estado small { opacity: 1; }
+#seguridad.p1:not(.p2) .h-fila:nth-child(2), #seguridad.p2:not(.p3) .h-fila:nth-child(3), #seguridad.p3:not(.p4) .h-fila:nth-child(4), #seguridad.p4 .h-fila:nth-child(5) { background: #FDE7C6; }
+#seguridad .h-fila { padding: 20px 44px 16px; }
+.cp-item { padding: 11px 0; }
 
 /* ===== Scroll: dos ventanas, un candado y el contador ===== */
 .equipo-scroll { left: 128px; top: 300px; width: 1000px; animation: subir 0.9s var(--suave-curva) both 0.25s; }
@@ -219,3 +221,9 @@ section.activa .cierre-toast { animation: toast-centro 0.6s var(--resorte) both 
 .ruta-sigue { top: 470px; }
 .ruta-sigue li { font-size: 34px; }
 .int-aporte { font-size: 40px; width: 800px; }
+
+/* Lo que sigue: la primera parada es la que se destaca */
+.ruta-sigue li:nth-child(2) .parada { background: var(--crema-claro); }
+.ruta-sigue li:nth-child(2) .parada svg { color: var(--avila); }
+.ruta-sigue li:nth-child(1) .parada { background: var(--avila-profundo); }
+.ruta-sigue li:nth-child(1) .parada svg { color: var(--crema); }

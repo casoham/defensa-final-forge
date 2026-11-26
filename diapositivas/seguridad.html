@@ -1,23 +1,28 @@
-<section id="seguridad" class="naranja" data-pasos="3">
-  <h2 class="titulo">Tres hallazgos de seguridad, y ninguno se puede explotar</h2>
+<section id="seguridad" class="naranja" data-pasos="4">
+  <h2 class="titulo">Cuatro hallazgos de seguridad, y ninguno se puede explotar hoy</h2>
   <div class="hallazgos" role="table" aria-label="Hallazgos de la revisión de seguridad">
     <div class="h-fila h-cab" role="row"><span role="columnheader">Hallazgo</span><span role="columnheader">Gravedad</span><span role="columnheader">Qué hicimos</span></div>
     <div class="h-fila" role="row" style="--k: 0">
+      <span role="cell"><b>La base completa (.db)</b><small>Un operador podía reemplazarla y cambiar la clave de César</small></span>
+      <span role="cell" class="grave alta">Alta</span>
+      <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>Solo el administrador, con su prueba</small></span>
+    </div>
+    <div class="h-fila" role="row" style="--k: 1">
       <span role="cell"><b>body-parser y qs</b><small>Se podía tumbar el servidor con un pedido comprimido</small></span>
       <span role="cell" class="grave alta">Alta</span>
       <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>npm audit: 0 vulnerabilidades</small></span>
     </div>
-    <div class="h-fila" role="row" style="--k: 1">
+    <div class="h-fila" role="row" style="--k: 2">
       <span role="cell"><b>Cabeceras de seguridad</b><small>El servidor no las mandaba</small></span>
       <span role="cell" class="grave">Baja</span>
       <span role="cell" class="estado"><em class="sello-h listo">Corregido</em><small>CSP, nosniff y sin marcos</small></span>
     </div>
-    <div class="h-fila" role="row" style="--k: 2">
+    <div class="h-fila" role="row" style="--k: 3">
       <span role="cell"><b>react-router 6</b><small>Dos avisos de la librería</small></span>
       <span role="cell" class="grave">Moderada</span>
       <span role="cell" class="estado"><em class="sello-h abierto">No aplica aquí</em><small>Se arregla al pasar a la versión 7</small></span>
     </div>
   </div>
-  <div class="pie"><p>Fuente: docs/revisiones/seguridad.md, 11 de noviembre de 2026</p></div>
-  <aside>Gabriel · Calidad y pruebas. Antes de entregar revisamos la seguridad contra tres amenazas: un empleado que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: body-parser y qs tenían una falla que permitía tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix y hoy el servidor tiene cero vulnerabilidades. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP solo con lo propio, nosniff y prohíbe que la app se abra dentro de un marco. Clic: react-router 6 tiene dos avisos, pero no se pueden explotar aquí: todas las rutas son fijas en el código y la app no se renderiza en un servidor. El arreglo es pasar a React Router 7, un cambio mayor que dejamos pendiente y lo decimos así.</aside>
+  <div class="pie"><p>Fuente: docs/revisiones/seguridad.md, revisiones del 11 y el 25 de noviembre</p></div>
+  <aside>Gabriel · Calidad y pruebas. Revisamos la seguridad dos veces contra tres amenazas: un usuario con sesión que intenta hacer más de lo que le toca, alguien con acceso a la computadora y una página web abierta en el mismo navegador. Clic: la del 25 de noviembre, con el subadministrador nuevo, encontró que un operador o un subadministrador podía reemplazar la base completa con una suya y así cambiarle la contraseña a César. Escribimos primero la prueba, que falló, y después lo corregimos: la base completa solo la exporta o reemplaza el administrador. Clic: body-parser y qs permitían tumbar el servidor con un pedido comprimido; se corrigió con npm audit fix. Clic: el servidor no mandaba cabeceras de seguridad; ahora manda CSP, nosniff y prohíbe abrir la app dentro de un marco. Clic: react-router 6 tiene dos avisos que aquí no se pueden explotar, porque todas las rutas son fijas en el código y no hay renderizado en servidor. El arreglo es pasar a React Router 7, un cambio mayor que dejamos pendiente y lo decimos así.</aside>
 </section>
